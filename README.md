@@ -1,36 +1,144 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RepoScribe
 
-## Getting Started
+> Turn your codebase into clear, professional documentation.
 
-First, run the development server:
+RepoScribe is an AI-powered GitHub documentation tool that analyzes repositories and uses Gemini AI to generate professional, structured README files.
 
-```bash
+The project is designed to support both public and private GitHub repositories while keeping repository credentials and sensitive information secure.
+
+
+🚀 Getting Started
+Prerequisites
+
+Make sure you have the following installed:
+
+Node.js
+npm
+A Google Gemini API key
+Installation
+
+Clone the repository:
+
+git clone https://github.com/YOUR_USERNAME/RepoScribe.git
+cd RepoScribe
+
+Install dependencies:
+
+npm install
+Environment Variables
+
+Create a .env.local file in the project root:
+
+GEMINI_API_KEY=your_gemini_api_key
+
+Never commit .env.local or expose your API key in client-side code.
+
+Run the Development Server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+http://localhost:3000
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Enter a public GitHub repository URL and generate its README.
 
-## Learn More
+🔄 How It Works
+GitHub Repository URL
+        ↓
+GitHub API
+        ↓
+Repository Metadata & Files
+        ↓
+Repository Analyzer
+        ↓
+Gemini AI
+        ↓
+Generated README
 
-To learn more about Next.js, take a look at the following resources:
+RepoScribe currently focuses on public repositories. Private repository support will be added through secure GitHub authentication.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🔐 Security
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+RepoScribe is designed to keep API credentials outside the client-side application.
 
-## Deploy on Vercel
+API keys are stored using environment variables.
+Sensitive credentials should never be committed to Git.
+GitHub authentication for private repositories will use secure OAuth-based access.
+Repository data sent to the AI layer will be controlled by the application.
+🤝 Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Contributions, suggestions, and improvements are welcome.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Before contributing, please check the project's contribution guidelines when available.
+
+📄 License
+
+License information will be added as the project develops.
+
+Built with ❤️ using Next.js, GitHub API, and Gemini AI.
+
+## ✨ Current Features
+
+- 🔗 Generate README files from public GitHub repository URLs
+- 🔍 Fetch repository metadata using the GitHub API
+- 📁 Analyze repository structure and important project files
+- 🤖 Generate documentation using Google Gemini AI
+- 📝 Generate structured Markdown README files
+- ⚠️ Handle invalid GitHub URLs and repository/API errors
+- 🔐 Environment-based API key configuration
+
+## 🚧 Project Status
+
+RepoScribe is currently under active development.
+
+### Implemented
+
+- Public GitHub repository URL parsing
+- GitHub repository metadata fetching
+- Repository file/content fetching
+- Basic repository analysis
+- Gemini-powered README generation
+- README preview in the web interface
+
+### Planned
+
+- Recursive repository/code analysis
+- Improved project architecture detection
+- README quality validation
+- Secret and sensitive-data detection
+- GitHub OAuth authentication
+- Private repository support
+- README regeneration and refinement
+- GitHub branch/commit/PR integration
+
+## 🛠️ Tech Stack
+
+- **Framework:** Next.js
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **AI:** Google Gemini API
+- **Repository API:** GitHub REST API
+- **Runtime:** Node.js
+
+## 📁 Project Structure
+
+```text
+RepoScribe/
+├── app/
+│   ├── api/
+│   │   └── generate-readme/
+│   │       └── route.ts
+│   ├── layout.tsx
+│   └── page.tsx
+│
+├── src/
+│   └── lib/
+│       ├── analyzer.ts
+│       ├── gemini.ts
+│       └── github.ts
+│
+├── .env.local
+├── package.json
+├── package-lock.json
+├── tsconfig.json
+└── README.md
