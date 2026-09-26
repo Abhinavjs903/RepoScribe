@@ -140,8 +140,8 @@ RepoScribe/
 └── README.md
 
 
-📄 License
+##📄 License
 
 License information will be added as the project develops.
 
-Built with ❤️ using Next.js, GitHub API, and Gemini AI.
+Abhinav Dixit, Signing off...
