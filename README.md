@@ -138,9 +138,10 @@ RepoScribe/
 ├── package-lock.json
 ├── tsconfig.json
 └── README.md
+```
 
 
-##📄 License
+## 📄 License
 
 License information will be added as the project develops.
 
