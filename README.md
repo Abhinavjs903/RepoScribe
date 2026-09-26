@@ -19,7 +19,7 @@ Installation
 
 Clone the repository:
 
-git clone https://github.com/YOUR_USERNAME/RepoScribe.git
+git clone (https://github.com/Abhinavjs903/RepoScribe)
 cd RepoScribe
 
 Install dependencies:
@@ -71,11 +71,7 @@ Contributions, suggestions, and improvements are welcome.
 
 Before contributing, please check the project's contribution guidelines when available.
 
-📄 License
 
-License information will be added as the project develops.
-
-Built with ❤️ using Next.js, GitHub API, and Gemini AI.
 
 ## ✨ Current Features
 
@@ -142,3 +138,10 @@ RepoScribe/
 ├── package-lock.json
 ├── tsconfig.json
 └── README.md
+
+
+📄 License
+
+License information will be added as the project develops.
+
+Built with ❤️ using Next.js, GitHub API, and Gemini AI.
