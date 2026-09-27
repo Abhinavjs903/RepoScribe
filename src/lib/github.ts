@@ -48,19 +48,29 @@ export async function getRepository(owner: string, repo: string) {
 }
 export async function getRepositoryContents(
   owner: string,
-  repo: string
+  repo: string,
+  path = ""
 ) {
-  const response = await fetch(
-    `https://api.github.com/repos/${owner}/${repo}/contents`,
-    {
-      headers: {
-        Accept: "application/vnd.github+json",
-      },
-      cache: "no-store",
-    }
-  );
+  const url = path
+    ? `https://api.github.com/repos/${owner}/${repo}/contents/${path}`
+    : `https://api.github.com/repos/${owner}/${repo}/contents`;
+
+  const response = await fetch(url, {
+    headers: {
+      Accept: "application/vnd.github+json",
+    },
+    cache: "no-store",
+  });
 
   if (!response.ok) {
+    if (response.status === 404) {
+      throw new Error(`Path not found: ${path || "/"}`);
+    }
+
+    if (response.status === 403) {
+      throw new Error("GitHub API rate limit exceeded");
+    }
+
     throw new Error("Failed to fetch repository contents");
   }
 
