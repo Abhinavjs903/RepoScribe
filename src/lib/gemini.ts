@@ -8,23 +8,37 @@ const model = genAI.getGenerativeModel({
   model: "gemini-2.5-flash",
 });
 
-export async function generateReadme(context: any) {
+export async function generateReadme(
+  projectBrain: unknown
+) {
   const prompt = `
 You are a senior software documentation engineer.
 
 Generate a professional GitHub README.md using ONLY
-the repository information provided below.
+the evidence-backed project information provided below.
 
 IMPORTANT RULES:
+
 - Do not invent features.
 - Do not invent technologies.
 - Do not invent commands.
 - Do not invent APIs.
 - Do not invent deployment methods.
-- Only use information supported by the repository data.
+- Do not invent environment variables.
+- Do not assume functionality from filenames alone.
+- Only make claims supported by the provided evidence.
 - If information is unavailable, omit it.
+- Do not expose secrets or credentials.
+- Keep the README concise and useful.
+- Do not add unnecessary sections.
+- Do not claim a license unless license evidence exists.
 
-The README must include:
+The README should adapt its structure to the project.
+
+Use the project type and available evidence to decide
+which sections are useful.
+
+Possible sections include:
 
 # Project Title
 
@@ -42,22 +56,29 @@ The README must include:
 
 ## Usage
 
-## License
+## API
 
 ## Contributing
 
-Repository information:
+## License
 
-${JSON.stringify(context, null, 2)}
+Only include sections that are supported by the
+project information.
+
+PROJECT BRAIN:
+
+${JSON.stringify(projectBrain, null, 2)}
 
 Return ONLY the Markdown README.
-Do not wrap the entire response inside a markdown code block.
+Do not wrap the response inside a markdown code block.
 
+At the end include:
 
-Also at last of Readme include Made with ❤️ and ☕ by Abhinav Dixit and Quant-Tech
+Made with ❤️ and ☕ by Abhinav Dixit and Quant-Tech
 `;
 
-  const result = await model.generateContent(prompt);
+  const result =
+    await model.generateContent(prompt);
 
   return result.response.text();
 }
