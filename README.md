@@ -143,6 +143,6 @@ RepoScribe/
 
 ## 📄 License
 
-License information will be added as the project develops.
+The project license is currently being finalized. Until a license is added to the repository, do not assume permission to reuse, modify, or redistribute the code.
 
 Abhinav Dixit, Signing off...
